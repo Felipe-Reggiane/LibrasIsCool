@@ -1,4 +1,3 @@
-import "./App.css";
 import VLibras from "@djpfs/react-vlibras";
 
 import images from "./assets";

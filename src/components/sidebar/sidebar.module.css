@@ -1,0 +1,68 @@
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    width: 13%;
+    background-color: #041631;
+    padding: 8px;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.chatContainer{
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    overflow-y: auto;
+}
+
+.chat{
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    gap: 15px;
+    border-radius: 10px;
+    transition: ease-in-out 0.1s;
+}
+
+.chat:hover{
+    background-color: #5991EB;
+    transition: ease-in-out;
+    cursor: pointer;
+}
+
+.divisoria {
+    width: 100%;
+    height: 1px;
+    background-color: #5991EB;
+    margin: 10px 0 30px 0;
+  }
+
+.footer{
+    display: flex;
+    height: 100%;
+    padding: 0 20px 0 10px;
+    margin-bottom: 35px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username{
+    color: #C1D8FB;
+    font-size: 20px;
+}
+
+h1{
+    color: #69A7EA;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+p{
+    color: #CEE8FF;
+    font-size: 20px;
+
+    /* formatação para não ter quebra de linha */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
