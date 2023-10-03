@@ -1,17 +1,36 @@
 .conteiner{
     display: flex;
     flex-direction: column;
-    width: 13%;
+    width: 300px;
     background-color: #041631;
-    padding: 8px;
+    padding: 0 8px 0 8px;
+    min-height: 100%;
     max-height: 100vh;
     overflow: hidden;
+}
+
+.buttonNewChat{
+    background-color: #041631;
+    color: #CEE8FF;
+    border: 1px solid #69A7EA;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    min-height: 40px;
+    width: 230px;
+    transition: ease-in-out 0.1s;
+}
+
+.buttonNewChat:hover{
+    cursor: pointer;
+    background-color: #5991EB;
 }
 
 .chatContainer{
     display: flex;
     flex-direction: column;
-    height: 70%;
+    height: 100%;
+    width: 100%;
     overflow-y: auto;
 }
 
@@ -24,10 +43,18 @@
     transition: ease-in-out 0.1s;
 }
 
+.chatSelected{
+    background-color: #4c7dcd
+}
+
 .chat:hover{
     background-color: #5991EB;
     transition: ease-in-out;
     cursor: pointer;
+}
+.footerContainer{
+    display: flex;
+    flex-direction: column;
 }
 
 .divisoria {
@@ -41,7 +68,7 @@
     display: flex;
     height: 100%;
     padding: 0 20px 0 10px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     justify-content: space-between;
     align-items: center;
 }
