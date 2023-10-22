@@ -1,4 +1,3 @@
-import mockFiltered from "../mock";
 import styles from "./sidebar.module.css";
 import images from "../../assets";
 import { useContext, useState } from "react";
