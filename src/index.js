@@ -6,13 +6,16 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./screens/homeScreen";
 
 import { MeuContextoProvider } from "./context/context";
+import { ChatsContextProvider } from "./context/chatsContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <MeuContextoProvider>
-      <Home />
-    </MeuContextoProvider>
+    <ChatsContextProvider>
+      <MeuContextoProvider>
+        <Home />
+      </MeuContextoProvider>
+    </ChatsContextProvider>
   </React.StrictMode>
 );
 

@@ -3,7 +3,8 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    gap: 50px
+    gap: 50px;
+    overflow: hidden;
 }
 
 .chatContainer{
@@ -14,15 +15,23 @@
     width: 50%;
     min-height: 500px;
     max-width: 100%;
-    /* background-color: red; */
+    height: 400px;
     margin-top: 70px; 
     margin-left: 60px;
+}
+
+.chatContainerInner{
+    overflow-y: auto;
+    direction: rtl;
+    text-align: left;
 }
 
 .message{
     color: #112A46;
     font-size: 30px;
     margin: 0;
+    margin-left: 10px;
+    margin-bottom: 15px;
 }
 
 .inputContainer{

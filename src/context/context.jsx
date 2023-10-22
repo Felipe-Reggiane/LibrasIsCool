@@ -5,12 +5,19 @@ const MeuContexto = createContext();
 const MeuContextoProvider = ({ children }) => {
   const [chatEmUso, setChatEmUso] = useState({
     id: 0,
-    title: "",
-    date: new Date(),
-    messages: [],
+    messages: [
+      {
+        id: 0,
+        content: "",
+        order: 0,
+        chat_id: 0,
+      },
+    ],
   });
 
-  const value = [chatEmUso, setChatEmUso];
+  const [activeKey, setActiveKey] = useState();
+
+  const value = [chatEmUso, setChatEmUso, activeKey, setActiveKey];
 
   return <MeuContexto.Provider value={value}>{children}</MeuContexto.Provider>;
 };

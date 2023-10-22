@@ -3,14 +3,89 @@ import styles from "./sidebar.module.css";
 import images from "../../assets";
 import { useContext, useState } from "react";
 import { MeuContexto } from "../../context/context";
+import { ChatsContext } from "../../context/chatsContext";
+import { getChatMessages, createChat } from "../../services/ChatsService";
 
 const Sidebar = () => {
-  console.log(mockFiltered);
-  const { userIcon, logoutIcon } = images;
+  const [modalNewChatOpen, setModalNewChatOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const [chatEmUso, setChatEmUso, activeKey, setActiveKey] =
+    useContext(MeuContexto);
+
+  const [chats, setChats, newChat, setNewChat] = useContext(ChatsContext);
+
+  const openModal = () => {
+    setChatEmUso();
+    setActiveKey();
+    setModalNewChatOpen(true);
+  };
+
+  const setActiveChat = async (chat) => {
+    setActiveKey(chat.id);
+    const chatToSet = {
+      id: chat.id,
+      messages: [],
+    };
+    setChatEmUso(chatToSet);
+    console.log("chat", chatEmUso);
+  };
+
+  //cria novo chat
+  const onCreateChat = async () => {
+    const newChat = await createChat(1, inputValue);
+    console.log(newChat);
+    setInputValue("");
+    setNewChat(true);
+    setActiveChat(newChat);
+    setModalNewChatOpen(false);
+  };
+
+  //cancela a criação do chat
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains(styles.modalContainer)) {
+      setModalNewChatOpen(false);
+    }
+  };
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const { userIcon, logoutIcon, arrow } = images;
 
   return (
     <div className={styles.conteiner}>
-      <button className={styles.buttonNewChat}>Novo Chat</button>
+      <button className={styles.buttonNewChat} onClick={openModal}>
+        Novo Chat
+      </button>
+      {modalNewChatOpen && (
+        <div className={styles.modalContainer} onClick={handleOverlayClick}>
+          <div className={styles.modalContent}>
+            <p className={styles.newChatTitle}>
+              Informe um título para o novo chat:
+            </p>
+            <div className={styles.inputContainer}>
+              <input
+                type="text"
+                placeholder="Escreva seu título..."
+                className={styles.input}
+                value={inputValue}
+                onChange={handleChange}
+              />
+              <button className={styles.button} onClick={onCreateChat}>
+                <img
+                  src={arrow}
+                  alt="icone"
+                  width={15}
+                  height={15}
+                  className={styles.arrowIcon}
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <div className={styles.chatContainer}>
         <Messages />
       </div>
@@ -29,21 +104,35 @@ const Sidebar = () => {
 const Messages = () => {
   const { chatIcon } = images;
 
-  const onChatClick = (chat) => {
-    setActiveKey(chat.id);
-    setChatEmUso(chat);
+  const getMessages = async (chatId) => {
+    const data = await getChatMessages(1, chatId);
+    return data;
   };
 
-  const [chatEmUso, setChatEmUso] = useContext(MeuContexto);
+  const onChatClick = async (chat) => {
+    setActiveKey(chat.id);
+    const messages = await getMessages(chat.id);
+    console.log("messages", messages);
+    const chatToSet = {
+      id: chat.id,
+      messages: messages,
+    };
+    setChatEmUso(chatToSet);
+    console.log("chat", chatEmUso);
+  };
 
-  const [activeKey, setActiveKey] = useState();
+  const [chatEmUso, setChatEmUso, activeKey, setActiveKey] =
+    useContext(MeuContexto);
+
+  const [chats, setChats, newChat, setNewChat] = useContext(ChatsContext);
+
   return (
     <>
-      {mockFiltered.map((category, index) => {
+      {chats.map((group, index) => {
         return (
           <div key={index}>
-            <h1>{category.title}</h1>
-            {category.chats.map((chat) => (
+            <h1>{group.groupTitle}</h1>
+            {group.chats.map((chat) => (
               <div
                 className={`${styles.chat} ${
                   chat.id === activeKey ? styles.chatSelected : ""
