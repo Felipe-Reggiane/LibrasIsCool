@@ -28,13 +28,11 @@ const Sidebar = () => {
       messages: [],
     };
     setChatEmUso(chatToSet);
-    console.log("chat", chatEmUso);
   };
 
   //cria novo chat
   const onCreateChat = async () => {
     const newChat = await createChat(1, inputValue);
-    console.log(newChat);
     setInputValue("");
     setNewChat(true);
     setActiveChat(newChat);
@@ -112,13 +110,11 @@ const Messages = () => {
   const onChatClick = async (chat) => {
     setActiveKey(chat.id);
     const messages = await getMessages(chat.id);
-    console.log("messages", messages);
     const chatToSet = {
       id: chat.id,
       messages: messages,
     };
     setChatEmUso(chatToSet);
-    console.log("chat", chatEmUso);
   };
 
   const [chatEmUso, setChatEmUso, activeKey, setActiveKey] =
