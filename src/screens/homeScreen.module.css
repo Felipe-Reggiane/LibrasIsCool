@@ -1,0 +1,127 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 50px;
+    overflow: hidden;
+}
+
+.chatContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 30px;
+    width: 50%;
+    min-height: 500px;
+    max-width: 100%;
+    height: 400px;
+    margin-top: 70px; 
+    margin-left: 60px;
+}
+
+.chatContainerInner{
+    overflow-y: auto;
+    direction: rtl;
+    text-align: left;
+}
+
+.message{
+    color: #112A46;
+    font-size: 30px;
+    margin: 0;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+
+.inputContainer{
+    display: flex;
+    width: 800px;
+    height: 50px;
+    background-color: #4276AF;
+    margin-left: 95px;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px #4276AF;
+}
+
+.input{
+    flex-grow: 1;
+    border-radius: 30px 0 0 30px;
+    border: 0px;
+    background-color: #4276AF;
+    padding: 0;
+    padding-left: 25px;
+    color: #C1D8FB;
+
+    font-size: 25px;
+    line-height: 50px;
+
+}
+
+.input::placeholder{
+    font-size: 25px;
+    color: #C1D8FB;
+}
+
+.input:focus{
+    border: none;
+    outline: none;
+}
+
+.button{
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: #4276AF;
+    border-radius: 0 30px 30px 0;
+}
+
+.arrowIcon{
+    margin-right: 30px;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .chatContainer{
+        margin-top: 40px; 
+        margin-left: 30px;
+    }
+    
+
+    .inputContainer{
+        width: 500px;
+        margin-left: 50px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .chatContainer{
+        margin-top: 40px; 
+        margin-left: 30px;
+    }
+    
+
+    .inputContainer{
+        width: 500px;
+        margin-left: 50px;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+
+    .inputContainer{
+        width: 600px;
+        margin-left: 50px;
+    }
+  }
+
+  @media screen and (max-height: 900px) {
+    .chatContainer{
+        margin-top: 40px; 
+        margin-left: 30px;
+        min-height: 300px;
+    }
+    
+  }

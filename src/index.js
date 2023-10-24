@@ -1,13 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import Home from "./screens/homeScreen";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { MeuContextoProvider } from "./context/context";
+import { ChatsContextProvider } from "./context/chatsContext";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ChatsContextProvider>
+      <MeuContextoProvider>
+        <Home />
+      </MeuContextoProvider>
+    </ChatsContextProvider>
   </React.StrictMode>
 );
 
