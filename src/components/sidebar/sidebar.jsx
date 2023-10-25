@@ -136,7 +136,7 @@ const Messages = () => {
                 onClick={() => onChatClick(chat)}
               >
                 <img src={chatIcon} alt="icone" width={20} height={20} />
-                <p>{chat.title}</p>
+                <p className={styles.chatTitle}>{chat.title}</p>
               </div>
             ))}
           </div>
