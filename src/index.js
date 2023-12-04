@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./screens/homeScreen";
+import App from "./App";
 
 import { MeuContextoProvider } from "./context/context";
 import { ChatsContextProvider } from "./context/chatsContext";
@@ -12,7 +12,7 @@ root.render(
   <React.StrictMode>
     <ChatsContextProvider>
       <MeuContextoProvider>
-        <Home />
+        <App />
       </MeuContextoProvider>
     </ChatsContextProvider>
   </React.StrictMode>

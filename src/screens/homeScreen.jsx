@@ -15,7 +15,8 @@ function Home() {
 
   const [inputValue, setInputValue] = useState("");
 
-  const [chatEmUso, setChatEmUso] = useContext(MeuContexto);
+  const [chatEmUso, setChatEmUso, currentScreen, setCurrentScreen] =
+    useContext(MeuContexto);
   const [chats, setChats, newChat, setNewChat] = useContext(ChatsContext);
 
   const getChats = async () => {
@@ -25,6 +26,16 @@ function Home() {
     setNewChat(false);
     return;
   };
+
+  const initialRoutine = () => {
+    getChats();
+    setCurrentScreen("home");
+    console.log(currentScreen);
+  };
+
+  useEffect(() => {
+    initialRoutine();
+  }, []);
 
   useEffect(() => {
     getChats();

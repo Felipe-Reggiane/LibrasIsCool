@@ -1,30 +1,31 @@
 .slide-button-container {
   display: flex;
-  background-color: #112A46;
+  background-color: #112a46;
   width: 350px;
   padding: 8px 15px;
   border-radius: 20px;
 }
 
 .slide-button-option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    padding: 10px 20px;
-    width: 200px;
-    height: 30px;
-    border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 20px;
+  width: 200px;
+  height: 30px;
+  border-radius: 15px;
 
-    font-size: 20px;
-    font-weight: 600;
-    color: #C1D8FB;
+  font-size: 20px;
+  font-weight: 600;
+  color: #c1d8fb;
+  text-decoration: none;
 
-    transition: transform ease 0.5s 
+  transition: transform ease 0.5s;
 }
 
 .slide-button-option.selected {
-  background-color: #69A7EA;
-  color: #112A46;
+  background-color: #69a7ea;
+  color: #112a46;
   transform: scale(1.1);
 }
