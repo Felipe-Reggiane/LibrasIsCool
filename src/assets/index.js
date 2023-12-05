@@ -7,9 +7,13 @@ import arrowRightIcon from "./arrowRight.svg";
 
 // arrays de botões
 import colors from "./colors";
+import animais from "./animals";
+import objetos from "./schoolSupplies";
 
 const images = {
   colors,
+  animais,
+  objetos,
   userIcon,
   logoutIcon,
   arrow,

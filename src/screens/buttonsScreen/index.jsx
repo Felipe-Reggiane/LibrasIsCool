@@ -36,17 +36,29 @@ function ButtonsScreen() {
     );
   };
 
-  // const renderAnimals = () => {
-  //   return (
-  //     <div className={styles.buttonsContainer}>
-  //       {images.colors.map((color, index) => ( ALTERAR MAP E OBJETO DO MAP
-  //         <div className={styles.buttom}>
-  //           <Buttons props={color} />  ALTERAR PROPS
-  //         </div>
-  //       ))}
-  //     </div>
-  //   );
-  // };
+  const renderAnimals = () => {
+    return (
+      <div className={styles.buttonsContainer}>
+        {images.animais.map((animais, index) => (
+          <div className={styles.buttom}>
+            <Buttons props={animais} />
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const renderObjetos = () => {
+    return (
+      <div className={styles.buttonsContainer}>
+        {images.objetos.map((objetos, index) => (
+          <div className={styles.buttom}>
+            <Buttons props={objetos} />
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   return (
     <Layout>
@@ -67,7 +79,8 @@ function ButtonsScreen() {
       </div>
       <div className={styles.container}>
         {images && currentButtons === "Cores" && renderColors()}
-        {/* {images && currentButtons === "Animais" && renderAnimals()} EXEMPLO */}
+        {images && currentButtons === "Animais" && renderAnimals()}
+        {images && currentButtons === "Objetos" && renderObjetos()}
       </div>
     </Layout>
   );
