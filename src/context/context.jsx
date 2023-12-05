@@ -15,20 +15,9 @@ const MeuContextoProvider = ({ children }) => {
     ],
   });
 
-  const [currentScreen, setCurrentScreen] = useState("home");
-
-  const [currentButtons, setCurrentButtons] = useState("");
-
   const [activeKey, setActiveKey] = useState();
 
-  const value = [
-    chatEmUso,
-    setChatEmUso,
-    activeKey,
-    setActiveKey,
-    currentScreen,
-    setCurrentScreen,
-  ];
+  const value = [chatEmUso, setChatEmUso, activeKey, setActiveKey];
 
   return <MeuContexto.Provider value={value}>{children}</MeuContexto.Provider>;
 };

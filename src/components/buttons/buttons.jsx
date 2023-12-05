@@ -1,9 +1,9 @@
 import styles from "./buttons.module.css";
 
-const Buttons = (image, title) => {
+const Buttons = ({ props }) => {
   return (
     <div className="ButtonsScreen">
-      <img className={styles.Button} src={image} alt={title} />
+      <img className={styles.Button} src={props.image} alt={props.title} />
     </div>
   );
 };

@@ -5,9 +5,12 @@ import { useContext } from "react";
 import { MeuContexto } from "../../context/context";
 
 import styles from "./layout.module.css";
+import { ScreenContext } from "../../context/screenContext";
 
 const Layout = ({ children }) => {
-  const [currentScreen, setCurrentScreen] = useContext(MeuContexto);
+  const [chatEmUso, setChatEmUso] = useContext(MeuContexto);
+
+  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
 
   const renderSidebar = () => {
     return <Sidebar />;

@@ -9,14 +9,17 @@ import { getAllChatsTitles, postChatMessage } from "../services/ChatsService";
 import { useEffect } from "react";
 import { AgruparChatsPorData } from "../utils/messageGroups";
 import { ChatsContext } from "../context/chatsContext";
+import { ScreenContext } from "../context/screenContext";
 
 function Home() {
   const { arrow } = images;
 
   const [inputValue, setInputValue] = useState("");
 
-  const [chatEmUso, setChatEmUso, currentScreen, setCurrentScreen] =
-    useContext(MeuContexto);
+  const [chatEmUso, setChatEmUso] = useContext(MeuContexto);
+
+  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
+
   const [chats, setChats, newChat, setNewChat] = useContext(ChatsContext);
 
   const getChats = async () => {
@@ -30,7 +33,6 @@ function Home() {
   const initialRoutine = () => {
     getChats();
     setCurrentScreen("home");
-    console.log(currentScreen);
   };
 
   useEffect(() => {

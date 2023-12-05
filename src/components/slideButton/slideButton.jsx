@@ -1,38 +1,49 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import styles from "./slideButton.module.css";
 
-import { MeuContexto } from "../../context/context";
+import { ScreenContext } from "../../context/screenContext";
 
 const SlideButton = () => {
-  const [currentScreen, setCurrentScreen] = useContext(MeuContexto);
+  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
   const [selected, setSelected] = useState("left");
 
-  const handleClick = () => {
-    setCurrentScreen(selected === "left" ? "buttons" : "home");
-    setSelected(selected === "left" ? "right" : "left");
+  const navigate = useNavigate();
+
+  const handleLeftClick = () => {
+    if (currentScreen === "buttons") {
+      setSelected("left");
+      setCurrentScreen("home");
+      navigate("/");
+    }
+  };
+
+  const handleRightClick = () => {
+    if (currentScreen === "home") {
+      setSelected("right");
+      setCurrentScreen("buttons");
+      navigate("/buttons");
+    }
   };
 
   return (
     <div className={styles["slide-button-container"]}>
-      <Link
-        to="/"
+      <div
+        onClick={handleLeftClick}
         className={`${styles["slide-button-option"]} ${
-          selected === "left" ? styles.selected : ""
+          currentScreen === "home" ? styles.selected : ""
         }`}
-        onClick={handleClick}
       >
         Digitar texto
-      </Link>
-      <Link
-        to="/buttons"
+      </div>
+      <div
+        onClick={handleRightClick}
         className={`${styles["slide-button-option"]} ${
-          selected === "right" ? styles.selected : ""
+          currentScreen === "buttons" ? styles.selected : ""
         }`}
-        onClick={handleClick}
       >
         Botões
-      </Link>
+      </div>
     </div>
   );
 };
