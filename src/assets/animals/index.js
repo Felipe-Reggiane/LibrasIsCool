@@ -1,6 +1,6 @@
 import boi from "./boi.jpg";
 import borboleta from "./borboleta.jpeg";
-import gato from "./cat.avif";
+import gato from "./gato.jpeg";
 import cavalo from "./cavalo.jpg";
 import pintinho from "./pintinho.jpg";
 import cachorro from "./dog.jpeg";
