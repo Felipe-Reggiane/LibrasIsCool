@@ -5,7 +5,6 @@ import SlideButton from "../slideButton/slideButton";
 import { useState } from "react";
 
 import styles from "./layout.module.css";
-// import Tutorial from "../tutorial";
 import TutorialModal from "../tutorial";
 
 const Layout = ({ children }) => {
