@@ -1,4 +1,3 @@
-import VLibras from "@djpfs/react-vlibras";
 import Sidebar from "../sidebar/sidebar";
 import SlideButton from "../slideButton/slideButton";
 import { useContext } from "react";
@@ -18,7 +17,6 @@ const Layout = ({ children }) => {
 
   return (
     <div className={styles.layoutContainer}>
-      <VLibras forceOnload={true} />
       {currentScreen === "home" && renderSidebar()}
       <div className={styles.childrenContainer}>
         <div className={styles.slideButtonContainer}>
