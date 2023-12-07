@@ -1,15 +1,25 @@
-import gatinho from "./animal-clinic-gato-2.jpg";
-import chatIcon from "./chatIcon.svg";
-import userIcon from "./Ellipse 1.svg";
-import logoutIcon from "./ic_outline-logout.svg";
 import arrow from "./arrow.svg";
+import userIcon from "./userIcon.svg";
+import logoutIcon from "./logoutIcon.svg";
+import chatIcon from "./chatIcon.svg";
+import arrowLeftIcon from "./arrowLeft.svg";
+import arrowRightIcon from "./arrowRight.svg";
+
+// arrays de botões
+import colors from "./colors";
+import animais from "./animals";
+import objetos from "./schoolSupplies";
 
 const images = {
-  gatinho,
-  chatIcon,
+  colors,
+  animais,
+  objetos,
   userIcon,
   logoutIcon,
   arrow,
+  chatIcon,
+  arrowLeftIcon,
+  arrowRightIcon,
 };
 
 export default images;
