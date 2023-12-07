@@ -1,23 +1,26 @@
+import VLibras from "@djpfs/react-vlibras";
+import images from "../../assets";
 import Sidebar from "../sidebar/sidebar";
 import SlideButton from "../slideButton/slideButton";
-import { useContext } from "react";
-import { MeuContexto } from "../../context/context";
+import { useState } from "react";
 
 import styles from "./layout.module.css";
-import { ScreenContext } from "../../context/screenContext";
+import TutorialModal from "../tutorial";
 
 const Layout = ({ children }) => {
-  const [chatEmUso, setChatEmUso] = useContext(MeuContexto);
-
-  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
-
-  const renderSidebar = () => {
-    return <Sidebar />;
-  };
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div className={styles.layoutContainer}>
-      {currentScreen === "home" && renderSidebar()}
+      <img
+        src={images.tutorialIcon}
+        alt="tutorial"
+        className={styles.tutorial}
+        onClick={() => setModalOpen(true)}
+      />
+      <TutorialModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <VLibras forceOnload={true} />
+      <Sidebar />
       <div className={styles.childrenContainer}>
         <div className={styles.slideButtonContainer}>
           <SlideButton />

@@ -1,4 +1,6 @@
 import arrow from "./arrow.svg";
+import tutorialIcon from "./tutorialIcon.svg";
+import closeModalIcon from "./closeModalIcon.svg";
 import userIcon from "./userIcon.svg";
 import logoutIcon from "./logoutIcon.svg";
 import chatIcon from "./chatIcon.svg";
@@ -17,6 +19,8 @@ const images = {
   userIcon,
   logoutIcon,
   arrow,
+  tutorialIcon,
+  closeModalIcon,
   chatIcon,
   arrowLeftIcon,
   arrowRightIcon,

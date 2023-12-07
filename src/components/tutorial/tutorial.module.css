@@ -1,0 +1,75 @@
+/* Modal.css */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer {
+    background: #4276AF;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 700px;
+    height: fit-content;
+    z-index: 100;
+  }
+
+  .modalHeader{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .spaceHeader{
+    width: 25px;
+  }
+
+  .modalTitle{
+    color: #EFF7FF;
+    font-size: 36px;
+    line-height: 36px;
+    margin: 0;
+  }
+  
+  .modalClose {
+    width: 25px;
+    cursor: pointer;
+  }
+
+  .modalBody{
+    margin-top: 50px;
+  }
+
+  .modalBodyTitle{
+    color: #DBE9FF;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .modalBodyInnerContainer{
+    display: flex;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 100%;
+    height: fit-content;
+  }
+
+  .modalBodytext{
+    color: #DBE9FF;
+    font-size: 20px;
+    margin: 0
+  }
+
+  .modalBodyFooter{
+    color: #DBE9FF;
+    font-size: 20px;
+    margin: 0;
+    margin-top: 20px;
+  }
