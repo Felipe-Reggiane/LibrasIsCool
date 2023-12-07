@@ -6,13 +6,11 @@ import { ScreenContext } from "../../context/screenContext";
 
 const SlideButton = () => {
   const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
-  const [selected, setSelected] = useState("left");
 
   const navigate = useNavigate();
 
   const handleLeftClick = () => {
     if (currentScreen === "buttons") {
-      setSelected("left");
       setCurrentScreen("home");
       navigate("/");
     }
@@ -20,7 +18,6 @@ const SlideButton = () => {
 
   const handleRightClick = () => {
     if (currentScreen === "home") {
-      setSelected("right");
       setCurrentScreen("buttons");
       navigate("/buttons");
     }

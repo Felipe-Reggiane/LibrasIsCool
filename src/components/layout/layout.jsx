@@ -2,13 +2,15 @@ import VLibras from "@djpfs/react-vlibras";
 import images from "../../assets";
 import Sidebar from "../sidebar/sidebar";
 import SlideButton from "../slideButton/slideButton";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import styles from "./layout.module.css";
 import TutorialModal from "../tutorial";
+import { ScreenContext } from "../../context/screenContext";
 
 const Layout = ({ children }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
 
   return (
     <div className={styles.layoutContainer}>
@@ -20,7 +22,7 @@ const Layout = ({ children }) => {
       />
       <TutorialModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       <VLibras forceOnload={true} />
-      <Sidebar />
+      {currentScreen === "home" && <Sidebar />}
       <div className={styles.childrenContainer}>
         <div className={styles.slideButtonContainer}>
           <SlideButton />

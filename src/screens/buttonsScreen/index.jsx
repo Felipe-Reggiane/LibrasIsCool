@@ -28,7 +28,7 @@ function ButtonsScreen() {
     return (
       <div className={styles.buttonsContainer}>
         {images.colors.map((color, index) => (
-          <div className={styles.buttom}>
+          <div className={styles.buttom} key={index}>
             <Buttons props={color} />
           </div>
         ))}
@@ -40,7 +40,7 @@ function ButtonsScreen() {
     return (
       <div className={styles.buttonsContainer}>
         {images.animais.map((animais, index) => (
-          <div className={styles.buttom}>
+          <div className={styles.buttom} key={index}>
             <Buttons props={animais} />
           </div>
         ))}
@@ -52,7 +52,7 @@ function ButtonsScreen() {
     return (
       <div className={styles.buttonsContainer}>
         {images.objetos.map((objetos, index) => (
-          <div className={styles.buttom}>
+          <div className={styles.buttom} key={index}>
             <Buttons props={objetos} />
           </div>
         ))}

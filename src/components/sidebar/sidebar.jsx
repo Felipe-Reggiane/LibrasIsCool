@@ -125,14 +125,14 @@ const Messages = () => {
     <>
       {chats.map((group, index) => {
         return (
-          <div key={index}>
+          <div key={`${group.groupTitle}${index}`}>
             <h1>{group.groupTitle}</h1>
-            {group.chats.map((chat) => (
+            {group.chats.map((chat, index) => (
               <div
                 className={`${styles.chat} ${
                   chat.id === activeKey ? styles.chatSelected : ""
                 }`}
-                key={chat.id}
+                key={`${group.title}${index}`}
                 onClick={() => onChatClick(chat)}
               >
                 <img src={chatIcon} alt="icone" width={20} height={20} />
