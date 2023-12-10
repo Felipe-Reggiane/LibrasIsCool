@@ -1,8 +1,14 @@
 import { api } from "./Api";
 
-export const getAllChatsTitles = async (userId) => {
+const Authorization = localStorage.getItem("authorization");
+
+export const getAllChatsTitles = async (authorization) => {
   try {
-    const { data } = await api.get(`/users/${userId}/chats`);
+    const { data } = await api.get(`/users/chats`, {
+      headers: {
+        Authorization: "Bearer " + authorization,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -10,9 +16,13 @@ export const getAllChatsTitles = async (userId) => {
   }
 };
 
-export const getChatMessages = async (userId, chatId) => {
+export const getChatMessages = async (chatId, authorization) => {
   try {
-    const { data } = await api.get(`/users/${userId}/chats/${chatId}/messages`);
+    const { data } = await api.get(`/users/chats/${chatId}/messages`, {
+      headers: {
+        Authorization: "Bearer " + authorization,
+      },
+    });
     return data;
   } catch (error) {
     console.log(error);
@@ -20,12 +30,15 @@ export const getChatMessages = async (userId, chatId) => {
   }
 };
 
-export const postChatMessage = async (userId, chatId, content) => {
+export const postChatMessage = async (chatId, content, authorization) => {
   try {
     const { data } = await api.post(
-      `/users/${userId}/chats/${chatId}/messages`,
+      `/users/chats/${chatId}/messages`,
+      { content },
       {
-        content,
+        headers: {
+          Authorization: "Bearer " + authorization,
+        },
       }
     );
 
@@ -36,11 +49,17 @@ export const postChatMessage = async (userId, chatId, content) => {
   }
 };
 
-export const createChat = async (userId, title) => {
+export const createChat = async (title, authorization) => {
   try {
-    const { data } = await api.post(`/users/${userId}/chats`, {
-      title,
-    });
+    const { data } = await api.post(
+      `/users/chats`,
+      { title },
+      {
+        headers: {
+          Authorization: "Bearer " + authorization,
+        },
+      }
+    );
 
     return data;
   } catch (error) {

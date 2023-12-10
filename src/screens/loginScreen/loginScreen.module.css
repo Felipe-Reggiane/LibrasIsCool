@@ -1,0 +1,102 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #C1D8FB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background-color: #E8F2FD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: fit-content;
+    padding: 40px 120px 20px 120px;
+}
+
+.title{
+    color: #0c2a57;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.forms{
+ margin-bottom: 40px;
+}
+
+.formTitle{
+    margin: 0;
+    margin-top: 30px;
+    font-size: 15px;
+    line-height: 20px;
+    color: #0c2a57
+}
+
+.formInput{
+    border: 0.5px solid black;
+    background-color: #E8F2FD;
+    width: 400px;
+    height: 40px;
+}
+
+.passwordInput{
+    border: none;
+    background-color: #E8F2FD;
+    width: 370px;
+    height: 40px;
+}
+
+.passwordInput:focus{
+    border: none;
+    outline: none;
+}
+
+.inputContainer{
+    display: flex;
+    align-items: center;
+    border: 0.5px solid black;
+}
+
+.eyeVisibility{
+    cursor: pointer;
+}
+
+.error{
+    margin: 0;
+    margin-top: 5px;
+    color:red;
+}
+
+.button{
+    background-color: #69A7EA;
+    width: 250px;
+    height: 80px;
+    border-radius: 25px;
+    border: none;
+    font-size: 28px;
+    color: #0c2a57;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+}
+
+.button:hover{
+    transition: ease-in-out 0.5s;
+    background-color: #3e89da;
+}
+
+.footerButtons{
+    margin-top: 10px;
+}
+
+.footer{
+    font-size: 20px;
+    color: #0c2a57;
+}

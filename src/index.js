@@ -6,16 +6,13 @@ import App from "./App";
 
 import { MeuContextoProvider } from "./context/context";
 import { ChatsContextProvider } from "./context/chatsContext";
-import { ScreenContextProvider } from "./context/screenContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ChatsContextProvider>
       <MeuContextoProvider>
-        <ScreenContextProvider>
-          <App />
-        </ScreenContextProvider>
+        <App />
       </MeuContextoProvider>
     </ChatsContextProvider>
   </React.StrictMode>
