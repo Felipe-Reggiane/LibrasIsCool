@@ -1,12 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { useNavigate } from "react-router-dom";
+import { MemoryRouter, useNavigate } from "react-router-dom";
 import SlideButton from "./slideButton";
-import {
-  ScreenContext,
-  ScreenContextProvider,
-} from "../../context/screenContext";
 
 import { JSDOM } from "jsdom";
 
@@ -18,16 +14,11 @@ global.document = dom.window.document;
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useNavigate: jest.fn(),
+  useNavigate: () => jest.fn(),
 }));
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
-  useContext: jest.fn(),
-}));
-
-jest.mock("../../context/ScreenContext", () => ({
-  ...jest.requireActual("../../context/ScreenContext"),
   useContext: jest.fn(),
 }));
 
@@ -61,9 +52,9 @@ describe("test left e right buttom", () => {
 
   it("test left click call navigate", () => {
     const { getByText } = render(
-      <ScreenContextProvider>
+      <MemoryRouter>
         <SlideButton />
-      </ScreenContextProvider>
+      </MemoryRouter>
     );
 
     const button = getByText("Digitar texto");

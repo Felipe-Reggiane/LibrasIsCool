@@ -6,11 +6,12 @@ import { useContext, useState } from "react";
 
 import styles from "./layout.module.css";
 import TutorialModal from "../tutorial";
-import { ScreenContext } from "../../context/screenContext";
+import { useLocation } from "react-router-dom";
 
 const Layout = ({ children }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
+
+  const location = useLocation();
 
   return (
     <div className={styles.layoutContainer}>
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
       />
       <TutorialModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
       <VLibras forceOnload={true} />
-      {currentScreen === "home" && <Sidebar />}
+      {location.pathname === "/home" && <Sidebar />}
       <div className={styles.childrenContainer}>
         <div className={styles.slideButtonContainer}>
           <SlideButton />

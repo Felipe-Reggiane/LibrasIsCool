@@ -1,24 +1,19 @@
-import { useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
 import styles from "./slideButton.module.css";
 
-import { ScreenContext } from "../../context/screenContext";
-
 const SlideButton = () => {
-  const [currentScreen, setCurrentScreen] = useContext(ScreenContext);
-
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLeftClick = () => {
-    if (currentScreen === "buttons") {
-      setCurrentScreen("home");
-      navigate("/");
+    if (location.pathname === "/buttons") {
+      navigate("/home");
     }
   };
 
   const handleRightClick = () => {
-    if (currentScreen === "home") {
-      setCurrentScreen("buttons");
+    if (location.pathname === "/home") {
       navigate("/buttons");
     }
   };
@@ -28,7 +23,7 @@ const SlideButton = () => {
       <div
         onClick={handleLeftClick}
         className={`${styles["slide-button-option"]} ${
-          currentScreen === "home" ? styles.selected : ""
+          location.pathname === "/home" ? styles.selected : ""
         }`}
       >
         Digitar texto
@@ -36,7 +31,7 @@ const SlideButton = () => {
       <div
         onClick={handleRightClick}
         className={`${styles["slide-button-option"]} ${
-          currentScreen === "buttons" ? styles.selected : ""
+          location.pathname === "/buttons" ? styles.selected : ""
         }`}
       >
         Botões
