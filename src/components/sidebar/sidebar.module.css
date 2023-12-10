@@ -180,4 +180,41 @@ h1{
     align-items: center ;
     margin-right: 10px;
 }
-  
+
+.image{
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.buttonsLogoutContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 50px;
+}
+
+.logoutButtom{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #C1D8FB;
+    border: none;
+    border-radius: 20px;
+}
+
+.logoutButtom:hover{
+    background-color: #fc4141;
+}
+
+.logoutNoButtom{
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #C1D8FB;
+    border: none;
+    border-radius: 20px;
+}
+
+.logoutNoButtom:hover{
+    background-color: #4276AF;
+}  

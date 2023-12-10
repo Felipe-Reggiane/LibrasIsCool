@@ -9,6 +9,7 @@ import { getAllChatsTitles, postChatMessage } from "../services/ChatsService";
 import { useEffect } from "react";
 import { AgruparChatsPorData } from "../utils/messageGroups";
 import { ChatsContext } from "../context/chatsContext";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const { arrow } = images;
@@ -16,24 +17,41 @@ function Home() {
   const [inputValue, setInputValue] = useState("");
 
   const [chatEmUso, setChatEmUso] = useContext(MeuContexto);
+
   const [chats, setChats, newChat, setNewChat] = useContext(ChatsContext);
 
+  const navigate = useNavigate();
+
+  const Authorization = localStorage.getItem("authorization");
+  const userLogged = localStorage.getItem("userLogged");
+
   const getChats = async () => {
-    const data = await getAllChatsTitles(1);
-    const dataFiltered = AgruparChatsPorData(data);
-    setChats(dataFiltered);
-    setNewChat(false);
-    return;
+    const data = await getAllChatsTitles(Authorization);
+    if (data) {
+      const dataFiltered = AgruparChatsPorData(data);
+      setChats(dataFiltered);
+      setNewChat(false);
+      return;
+    }
+  };
+
+  const initialRoutine = () => {
+    if (userLogged && Authorization) {
+      getChats();
+      return;
+    } else {
+      navigate("/");
+    }
   };
 
   useEffect(() => {
-    getChats();
-  }, [newChat]);
+    initialRoutine();
+  }, [newChat, Authorization, userLogged]);
 
   const onSendMessage = async () => {
     try {
       chatEmUso
-        ? await postChatMessage(1, chatEmUso.id, inputValue)
+        ? await postChatMessage(1, chatEmUso.id, inputValue, Authorization)
         : console.log("sem chat");
       const chatToSet = {
         id: chatEmUso.id,

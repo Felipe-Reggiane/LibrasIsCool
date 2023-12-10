@@ -1,28 +1,38 @@
-import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import React from "react";
 import styles from "./slideButton.module.css";
 
 const SlideButton = () => {
-  const [selected, setSelected] = useState("left");
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleClick = () => {
-    setSelected(selected === "left" ? "right" : "left");
+  const handleLeftClick = () => {
+    if (location.pathname === "/buttons") {
+      navigate("/home");
+    }
+  };
+
+  const handleRightClick = () => {
+    if (location.pathname === "/home") {
+      navigate("/buttons");
+    }
   };
 
   return (
     <div className={styles["slide-button-container"]}>
       <div
+        onClick={handleLeftClick}
         className={`${styles["slide-button-option"]} ${
-          selected === "left" ? styles.selected : ""
+          location.pathname === "/home" ? styles.selected : ""
         }`}
-        onClick={handleClick}
       >
         Digitar texto
       </div>
       <div
+        onClick={handleRightClick}
         className={`${styles["slide-button-option"]} ${
-          selected === "right" ? styles.selected : ""
+          location.pathname === "/buttons" ? styles.selected : ""
         }`}
-        onClick={handleClick}
       >
         Botões
       </div>

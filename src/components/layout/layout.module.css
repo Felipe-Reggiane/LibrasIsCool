@@ -7,6 +7,15 @@
     flex-direction: row;
 }
 
+.tutorial{
+    width: 50px;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
 .childrenContainer{
     width: 100%;
     min-height: 100%;
