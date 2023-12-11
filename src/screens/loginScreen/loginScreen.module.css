@@ -46,6 +46,11 @@
     height: 40px;
 }
 
+.formInput:focus{
+    border: none;
+    outline: none;
+}
+
 .passwordInput{
     border: none;
     background-color: #E8F2FD;
