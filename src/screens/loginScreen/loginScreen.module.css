@@ -47,7 +47,7 @@
 }
 
 .formInput:focus{
-    border: none;
+    border: 0.5px solid black;
     outline: none;
 }
 
