@@ -1,4 +1,3 @@
-import VLibras from "@djpfs/react-vlibras";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -66,7 +65,6 @@ const Login = () => {
 
   return (
     <div className={styles.overlay}>
-      <VLibras forceOnload={true} />
       <div className={styles.container}>
         <h1 className={styles.title}>Seja bem vindo</h1>
         <div className={styles.forms}>

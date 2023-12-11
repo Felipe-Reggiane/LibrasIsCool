@@ -1,4 +1,3 @@
-import VLibras from "@djpfs/react-vlibras";
 import images from "../../assets";
 import Sidebar from "../sidebar/sidebar";
 import SlideButton from "../slideButton/slideButton";
@@ -22,7 +21,6 @@ const Layout = ({ children }) => {
         onClick={() => setModalOpen(true)}
       />
       <TutorialModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-      <VLibras forceOnload={true} />
       {location.pathname === "/home" && <Sidebar />}
       <div className={styles.childrenContainer}>
         <div className={styles.slideButtonContainer}>
