@@ -1,5 +1,5 @@
 import VLibras from "@djpfs/react-vlibras";
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ParsedText } from "react-substring-styler";
@@ -22,10 +22,6 @@ const Login = () => {
     } else {
       setHidePassword("password");
     }
-  };
-
-  const createAccount = () => {
-    navigate("/register");
   };
 
   const paternDefaultProps = {

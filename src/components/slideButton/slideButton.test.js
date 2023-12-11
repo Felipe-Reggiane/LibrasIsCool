@@ -1,67 +1,61 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import { render, fireEvent, screen } from "@testing-library/react";
-import { MemoryRouter, useNavigate } from "react-router-dom";
+import { render, fireEvent } from "@testing-library/react";
 import SlideButton from "./slideButton";
 
 import { JSDOM } from "jsdom";
 
-import { useContext } from "react";
-
 const dom = new JSDOM("<!doctype html><html><body></body></html>");
 global.window = dom.window;
 global.document = dom.window.document;
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useNavigate: () => jest.fn(),
-}));
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
   useContext: jest.fn(),
 }));
 
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useLocation: () => ({
+    pathname: "/",
+  }),
+  useNavigate: () => jest.fn(),
+}));
+
 afterEach(() => {
   jest.clearAllMocks();
 });
-describe("test left e right buttom", () => {
-  beforeEach(() => {
-    const mockContext = [
-      "home", // currentScreen
-      jest.fn(), // setCurrentScreen
-    ];
-
-    useContext.mockReturnValue(mockContext);
+describe("test SlideButton", () => {
+  test("SlideButton renders correctly", () => {
+    const { asFragment } = render(<SlideButton />);
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  it("test right click change context", () => {
-    const { getByText } = render(
-      <ScreenContextProvider>
-        <SlideButton />
-      </ScreenContextProvider>
-    );
+  test("handle left click", () => {
+    const navigate = jest.fn();
+    jest
+      .spyOn(require("react-router-dom"), "useNavigate")
+      .mockReturnValue(navigate);
+    jest
+      .spyOn(require("react-router-dom"), "useLocation")
+      .mockReturnValue({ pathname: "/buttons" });
+    const { getByText } = render(<SlideButton />);
 
-    const button = getByText("Botões");
-
-    fireEvent.click(button);
-
-    // Verificar se a função do contexto foi chamada corretamente
-    expect(useContext(ScreenContext)[1]).toHaveBeenCalledWith("buttons");
+    // Simulate a click on the "Digitar texto" button
+    fireEvent.click(getByText("Digitar texto"));
+    expect(navigate).toHaveBeenCalledWith("/home");
   });
 
-  it("test left click call navigate", () => {
-    const { getByText } = render(
-      <MemoryRouter>
-        <SlideButton />
-      </MemoryRouter>
-    );
+  test("handle right click", () => {
+    const navigate = jest.fn();
+    jest
+      .spyOn(require("react-router-dom"), "useNavigate")
+      .mockReturnValue(navigate);
+    jest
+      .spyOn(require("react-router-dom"), "useLocation")
+      .mockReturnValue({ pathname: "/home" });
+    const { getByText } = render(<SlideButton />);
 
-    const button = getByText("Digitar texto");
-
-    fireEvent.click(button);
-
-    // Verificar se o navigate foi chamado
-    expect(useNavigate).toHaveBeenCalled();
+    fireEvent.click(getByText("Botões"));
+    expect(navigate).toHaveBeenCalledWith("/buttons");
   });
 });

@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SlideButton renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="slide-button-container"
+  >
+    <div
+      class="slide-button-option "
+    >
+      Digitar texto
+    </div>
+    <div
+      class="slide-button-option "
+    >
+      Botões
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test SlideButton SlideButton renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="slide-button-container"
+  >
+    <div
+      class="slide-button-option "
+    >
+      Digitar texto
+    </div>
+    <div
+      class="slide-button-option "
+    >
+      Botões
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`test left e right buttom SlideButton renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="slide-button-container"
+  >
+    <div
+      class="slide-button-option "
+    >
+      Digitar texto
+    </div>
+    <div
+      class="slide-button-option "
+    >
+      Botões
+    </div>
+  </div>
+</DocumentFragment>
+`;
