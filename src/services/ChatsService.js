@@ -67,3 +67,18 @@ export const createChat = async (title, authorization) => {
     return;
   }
 };
+
+export const deleteChat = async (id, authorization) => {
+  try {
+    const { data } = await api.delete(`/users/chats/delete/${id}`, {
+      headers: {
+        Authorization: "Bearer " + authorization,
+      },
+    });
+
+    return data;
+  } catch (error) {
+    console.log(error);
+    return;
+  }
+};

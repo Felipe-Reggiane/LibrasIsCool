@@ -37,10 +37,17 @@
 .chat{
     display: flex;
     align-items: center;
-    padding-left: 16px;
+    justify-content: space-between;
     gap: 15px;
     border-radius: 10px;
     transition: ease-in-out 0.1s;
+}
+
+.chatContainerTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .chatSelected{

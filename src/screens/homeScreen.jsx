@@ -49,9 +49,14 @@ function Home() {
   }, [newChat, Authorization, userLogged]);
 
   const onSendMessage = async () => {
+    if (!chatEmUso || chatEmUso.id === 0) {
+      window.alert("Crie um novo chat para começar uma conversa");
+      setInputValue("");
+      return;
+    }
     try {
       chatEmUso
-        ? await postChatMessage(1, chatEmUso.id, inputValue, Authorization)
+        ? await postChatMessage(chatEmUso.id, inputValue, Authorization)
         : console.log("sem chat");
       const chatToSet = {
         id: chatEmUso.id,
